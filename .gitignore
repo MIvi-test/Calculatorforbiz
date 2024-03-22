@@ -1,2 +1,5 @@
 .venv
 .pycache_
+output/
+line.png
+pie.png

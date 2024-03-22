@@ -9,6 +9,8 @@ class Calculations:
         self.clients = clients
         self.start_capital = start_capital
         self.expenses = expenses
+        if procent > 1:
+            procent = procent / 100
         self.procent = procent
         self.unchanging_increase = unchanging_increase
         #определяю в поля класса, чтобы пользоваться ими в других фунциях
@@ -51,7 +53,7 @@ class Calculations:
             if mode == 'A' and month > 1:
                 self.clients = self.clients + self.unchanging_increase
             elif mode == 'G' and month > 1:
-                self.clients = self.clients + round(self.clients * self.procent, 3)
+                self.clients = self.clients + round(self.clients * self.procent)
             clients.append(self.clients)
             money.append(self.tax_regime()['income'])
             taxs.append(self.tax_regime()['amount'])

@@ -33,11 +33,13 @@ def main():
                                          procent=prosent, 
                                          unchanging_increase=15)
         
-    arifm_data = Calculable.progression(mode='A')
+    # arifm_data = Calculable.progression(mode='A') 
     geo_data = Calculable.progression(mode='G')
-    grf = grafic.Grafics(data=arifm_data)
+    grf = grafic.Grafics(data=geo_data)
     grf.circular(expenses=expenses)
-        
+    grf.growth_charts()
+    console.print(f'Ваши графики были сохранены  в той же папке что и exe файл. \nВы окупитесь в {geo_data[0]}',style='bold yellow', end=' ', new_line_start=True)
+    
     
 if __name__ == '__main__':
     main()
