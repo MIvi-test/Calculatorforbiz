@@ -4,7 +4,7 @@ from typing import Literal, List
 
 class Calculations:
     
-    def __init__(self, average_cheque:int, clients:int, start_capital:int, expenses:int, procent:int|None = None, unchanging_increase: int|None = None):
+    def __init__(self, average_cheque:int, clients:int, start_capital:int, expenses:int, procent:int|float = 0.10, unchanging_increase: int = 10):
         self.average_cheque = average_cheque
         self.clients = clients
         self.start_capital = start_capital
@@ -36,7 +36,7 @@ class Calculations:
                 tax['income'] = _income
         return tax    
    
-    def progression(self, mode = Literal['A','G']) -> list[int,list,list,list]:
+    def progression(self, mode = Literal['A','G']) -> list[int,list,list,list]: # type: ignore
         '''0-mounth; 1-list of money; 2-list of tax; 3-list of clients'''
         month = 1
         money = []
@@ -64,7 +64,7 @@ class Calculations:
         #возращаем первоначальные значения переменных
         self.unchanging_increase = _increase
         self.clients = _clints
-        return [month, money, taxs, clients]
+        return [month, money, taxs, clients] # type: ignore
     
     def __start__(self):
         #запуск всех методов \ не сделано
